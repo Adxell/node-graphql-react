@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+ mysql:
+  image: mysql:5.7
+  container_name: mysql_graphql
+  volumes:
+    - dbdata:/var/lib/mysql
+  restart: always
+  environment:
+    MYSQL_ROOT_PASSWORD: db_secret
+    MYSQL_DATABASE: product
+    MYSQL_USER: user_db
+    MYSQL_PASSWORD: secret_db
+  ports:
+    - "3306:3306"
+
+volumes:
+ dbdata:
